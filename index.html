@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <title>TAKIN' SHOTS</title>
+  </head>
+  <body>
+    <div class="container-h1">
+      <a href="index.html"><h1>TAKIN' SHOTS</h1></a>
+    </div>
+
+    <main>
+      <div class="btnContainer">
+        <button type="button" class="btnInstall">Instalar App</button>
+        <button type="button" class="btnShare">Compartir App</button>
+      </div>
+
+      <form id="search-form">
+        <fieldset id="ingredient">
+          <legend>Select an ingredient:</legend>
+          <div class="container-opciones">
+            <div>
+              <label for="aperol">Aperol</label>
+              <input
+                type="radio"
+                id="aperol"
+                name="ingredient"
+                value="aperol"
+              />
+            </div>
+            <div>
+              <label for="beer">Beer</label>
+              <input type="radio" id="beer" name="ingredient" value="beer" />
+            </div>
+            <div>
+              <label for="gin">Gin</label>
+              <input type="radio" id="gin" name="ingredient" value="gin" />
+            </div>
+            <div>
+              <label for="jagermeister">Jägermeister</label>
+              <input
+                type="radio"
+                id="jagermeister"
+                name="ingredient"
+                value="jagermeister"
+              />
+            </div>
+            <div>
+              <label for="rum">Rum</label>
+              <input type="radio" id="rum" name="ingredient" value="rum" />
+            </div>
+            <div>
+              <label for="tequila">Tequila</label>
+              <input
+                type="radio"
+                id="tequila"
+                name="ingredient"
+                value="tequila"
+              />
+            </div>
+            <div>
+              <label for="vodka">Vodka</label>
+              <input type="radio" id="vodka" name="ingredient" value="vodka" />
+            </div>
+            <div>
+              <label for="whiskey">Whiskey</label>
+              <input
+                type="radio"
+                id="whiskey"
+                name="ingredient"
+                value="whiskey"
+              />
+            </div>
+          </div>
+        </fieldset>
+        <div class="container-search-wishlist-index">
+          <button id="search" type="submit">Search</button>
+          <button id="wishlist" type="button">
+            <a href="wishlist.html">Wishilist</a>
+          </button>
+        </div>
+      </form>
+
+      <article id="welcome">
+        <p>
+          Welcome to our cocktail search website!<br />
+          Here, you can easily find the perfect cocktail recipe by selecting a
+          base drink, clicking on the search button, and browsing through the
+          options that match your selection. Once you find a cocktail that
+          piques your interest, simply click on the "View More" button to see
+          the ingredients and preparation instructions.<br />
+          With our easy-to-use interface, you'll be able to explore and create
+          new cocktail favorites in no time.<br />
+          So, what are you waiting for? Start searching for your next favorite
+          cocktail today!
+        </p>
+      </article>
+    </main>
+    <div id="cocktail-list" class="cocktail-list"></div>
+    <script src="js/main.js"></script>
+  </body>
+</html>

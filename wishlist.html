@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <title>TAKIN' SHOTS</title>
+  </head>
+  <body>
+    <div class="container-h1">
+      <a href="index.html"><h1>TAKIN' SHOTS</h1></a>
+    </div>
+
+    <main>
+      <div class="btnContainer">
+        <button type="button" class="btnInstall">Instalar App</button>
+        <button type="button" class="btnShare">Compartir App</button>
+      </div>
+
+      <div class="container-search-wishlist">
+        <button id="goBack">
+          <a href="index.html">Home</a>
+        </button>
+        <button id="clearWishlist">Clear Wishlist</button>
+        <button id="wishlist" type="submit">Wishilist</button>
+      </div>
+      <div id="wishlist-list" class="cocktail-list"></div>
+    </main>
+    <script src="js/main.js"></script>
+    <script src="js/wishlist.js"></script>
+  </body>
+</html>
