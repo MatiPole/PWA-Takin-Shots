@@ -3,7 +3,7 @@
   "background_color": "#53b4cb",
   "display": "fullscreen",
   "scope": "/pwa-parcial-1-dwn3ap-poletto-matias/",
-  "start_url": "/pwa-parcial-1-dwn3ap-poletto-matias/index.html",
+  "start_url": "index.html",
   "name": "Takin Shots",
   "short_name": "TS App",
   "description": "Cocktail Recipes",
