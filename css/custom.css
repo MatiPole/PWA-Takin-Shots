@@ -128,6 +128,7 @@ fieldset {
 
 .container-opciones div label {
   font-size: 1rem;
+  text-align: center;
 }
 
 .cocktail-list {
@@ -276,5 +277,12 @@ li {
     flex-direction: column;
     align-items: center;
     row-gap: 1rem;
+  }
+  .btnContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
   }
 }

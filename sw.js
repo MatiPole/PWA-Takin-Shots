@@ -44,3 +44,30 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
+self.addEventListener("push", (event) => {
+  let title = event.data.text();
+  let options = {
+    body: "New recipies!",
+    icon: "icons/icon-192x192.png",
+    // milisegundos
+    vibrate: [500, 300, 500, 300, 500, 300],
+    tag: 1,
+    actions: [
+      { action: 1, icon: "icons/icon-192x192.png", title: "Find new drinks" },
+      { action: 2, icon: "icons/icon-192x192.png", title: "Not drinkin today" },
+    ],
+  };
+  event.waitUntil(self.registration.showNotification(title, options));
+});
+
+self.addEventListener("notificationclick", (event) => {
+  if (event.action == 1) {
+    console.log("el usuario quiere encontrar nuevos tragos");
+    clients.openWindow(
+      "http://localhost/pwa-parcial-2-dwn3ap-poletto-matias/index.html"
+    );
+  } else if (event.action == 2) {
+    console.log("el usuario no quiere tomar hoy");
+  }
+  event.notification.close();
+});

@@ -3,6 +3,7 @@ const wishlistButton = document.getElementById("wishlist");
 const clearWishlist = document.querySelector("#clearWishlist");
 const wishlistStorage = localStorage.getItem("wishlist");
 const wishlistArray = JSON.parse(wishlistStorage);
+const wishlistPageButton = document.querySelector(".wishlistPageButton");
 
 function showWishlist() {
   wishlistList.innerHTML = "";
@@ -26,7 +27,7 @@ function showWishlist() {
           button.addEventListener("click", function () {
             const id = this.getAttribute("data-id");
             const url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`;
-
+            wishlistPageButton.style.display = "block";
             fetch(url)
               .then(function (response) {
                 return response.json();
@@ -146,6 +147,7 @@ function showWishlist() {
 
 wishlistButton.addEventListener("click", function () {
   showWishlist(); // llama la función para mostrar la lista de deseos al hacer clic en el botón
+  wishlistPageButton.style.display = "none";
 });
 
 clearWishlist.addEventListener("click", function () {
@@ -155,4 +157,5 @@ clearWishlist.addEventListener("click", function () {
 });
 document.addEventListener("DOMContentLoaded", function () {
   showWishlist(); // llama la función para mostrar la lista de deseos al cargar la página
+  wishlistPageButton.style.display = "none";
 });

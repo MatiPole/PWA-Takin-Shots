@@ -58,11 +58,67 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  //NOTIFICACIONES
+  if (window.Notification) {
+    if (Notification.permission !== "denied") {
+      setTimeout(function () {
+        Notification.requestPermission().then((permission) => {
+          if (permission === "granted") {
+            console.log("El usuario acepto recibir notificaciones");
+          } else {
+            console.log("El usuario no acepto recibir notificaciones");
+          }
+        });
+      }, 300);
+    }
+  }
+
+  const notifBtn = document.querySelector(".btnNotif");
+  notifBtn.addEventListener("click", () => {
+    Notification.requestPermission().then((perm) => {
+      if (perm === "granted") {
+        const notification = new Notification("Notificación", {
+          body: "Hey! Lets find new drinks!",
+          icon: "icons/icon-192x192.png",
+          tag: 1,
+          silent: true,
+        });
+      }
+    });
+  });
+
+  //ONLINE-OFFLINE
+  let OnLineStatus = () => {
+    console.log(navigator.onLine);
+    let searchButton = document.querySelector("#search");
+    let wlistButton = document.querySelector("#wishlist");
+    if (navigator.onLine) {
+      console.log("estamos online");
+      searchButton.style.backgroundColor = "";
+      wlistButton.style.backgroundColor = "";
+    } else {
+      console.log("estamos offline");
+      searchButton.style.backgroundColor = "gray";
+      wlistButton.style.backgroundColor = "gray";
+    }
+  };
+
+  window.addEventListener("online", function () {
+    console.log("online");
+    OnLineStatus();
+  });
+
+  window.addEventListener("offline", function () {
+    console.log("offline");
+    OnLineStatus();
+  });
+
   // TRAER API
   const form = document.querySelector("#search-form");
   const buttonSearch = document.querySelector("#search");
   const cocktailList = document.querySelector("#cocktail-list");
   const welcome = document.querySelector("#welcome");
+  const wishlistButton = document.querySelector("#wishlist");
   const wishlist =
     JSON.parse(localStorage.getItem("wishlist")) ||
     []; /*array para guardar los favoritos en localStorage */
@@ -215,6 +271,7 @@ window.addEventListener("DOMContentLoaded", function () {
                   );
                   localStorage.setItem("wishlist", JSON.stringify(wishlist));
                   console.log(wishlist);
+                  wishlistButton.style.display = "block";
                 });
               });
           });
@@ -227,4 +284,9 @@ window.addEventListener("DOMContentLoaded", function () {
         }
       });
   });
+  if (wishlist.length == 0) {
+    wishlistButton.style.display = "none";
+  } else {
+    wishlistButton.style.display = "block";
+  }
 });
